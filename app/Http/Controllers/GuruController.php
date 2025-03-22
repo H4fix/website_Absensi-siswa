@@ -37,22 +37,23 @@ class GuruController extends Controller
         $validasi = $request->validate([
             'nama' => 'required',
             'nip' => 'required',
-            'nohp' => 'required',
+            'no_hp' => 'required',
             'jk' => 'required',
             'tanggal_lahir' => 'required',
             'username' => 'required',
             'password' => 'required',
-            'id_user' => 'nullable',
+            'user_id' => 'nullable',
         ], [
             'nama.required' => 'Nama Harus Diisi',
             'nip.required' => 'NIP Harus Diisi',
-            'nohp.required' => 'Nomor HP Harus Diisi',
+            'no_hp.required' => 'Nomor HP Harus Diisi',
             'jk.required' => 'Jenis Kelamin Harus Diisi',
             'tanggal_lahir.required' => 'Tanggal Lahir Harus Diisi',
             'username.required' => 'Username Harus Diisi',
             'password.required' => 'Password Harus Diisi',
         ]);
         $user = new User();
+        $user->name = $validasi['nama'];
         $user->username = $validasi['username'];
         $user->password = bcrypt($validasi['password']);
         $user->level = 'guru'; // Default level guru
@@ -61,12 +62,12 @@ class GuruController extends Controller
         $guru = new Guru;
         $guru->nama = $validasi['nama'];
         $guru->nip = $validasi['nip'];
-        $guru->nohp = $validasi['nohp'];
+        $guru->no_hp = $validasi['no_hp'];
         $guru->jk = $validasi['jk'];
         $guru->tanggal_lahir = $validasi['tanggal_lahir'];
         $guru->username = $validasi['username'];
         $guru->password = $validasi['password'];
-        $guru->id_user = $user->id;
+        $guru->user_id = $user->id;
         $guru->save();
         return redirect(route('guru.index'));
     }
@@ -86,7 +87,7 @@ class GuruController extends Controller
      */
     public function edit($id)
     {
-        $guru = guru::find($id);
+        $guru = Guru::find($id);
         return view('admin.guru.edit', [
             'menu' => 'guru',
             'title' => 'Edit Data Guru',
@@ -99,18 +100,18 @@ class GuruController extends Controller
         $validasi = $request->validate([
             'nama' => 'nullable',
             'nip' => 'nullable',
-            'nohp' => 'nullable',
+            'no_hp' => 'nullable',
             'jk' => 'nullable',
             'tanggal_lahir' => 'nullable',
             'username' => 'nullable',
             'password' => 'nullable',
-            'id_user' => 'nullable',
+            'user_id' => 'nullable',
         ]);
 
         $guru = guru::findOrFail($id);
         $guru->nama = $validasi['nama'] ?? $guru->nama;
         $guru->nip = $validasi['nip'] ?? $guru->nip;
-        $guru->nohp = $validasi['nohp'] ?? $guru->nohp;
+        $guru->no_hp = $validasi['no_hp'] ?? $guru->no_hp;
         $guru->jk = $validasi['jk'] ?? $guru->jk;
         $guru->tanggal_lahir = $validasi['tanggal_lahir'] ?? $guru->tanggal_lahir;
         $guru->username = $validasi['username'] ?? $guru->username;
@@ -120,7 +121,8 @@ class GuruController extends Controller
 
         $guru->save();
 
-        $user = User::findOrFail($guru->id_user);
+        $user = User::findOrFail($guru->user_id);
+        $user->name = $validasi['nama'] ?? $user->name;
         $user->username = $validasi['username'] ?? $user->username;
         if ($request->filled('password')) {
             $user->password = bcrypt($validasi['password']);
@@ -137,8 +139,8 @@ class GuruController extends Controller
         $guru = guru::findOrFail($id);
 
         // Hapus user yang terkait jika ada
-        if ($guru->id_user) {
-            User::where('id', $guru->id_user)->delete();
+        if ($guru->user_id) {
+            User::where('id', $guru->user_id)->delete();
         }
 
         // Hapus guru

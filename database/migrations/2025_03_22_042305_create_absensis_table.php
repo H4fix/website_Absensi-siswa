@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('tanggal_absen', 30);
             $table->string('jam_absen');
-            $table->foreignId('siswa_id')->references('id')->on('siswas')->onDelete('cascade');
-            $table->foreignId('guru_id')->references('id')->on('gurus')->onDelete('cascade');
+            $table->foreignId('siswa_id')->references('id')->on('siswas')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('guru_id')->references('id')->on('gurus')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

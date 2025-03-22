@@ -69,6 +69,7 @@ class siswacontroller extends Controller
         ]);
 
         $user = new User();
+        $user->name = $validasi['nama'];
         $user->username = $validasi['username'];
         $user->password = bcrypt($validasi['password']);
         $user->level = 'siswa'; // Default level siswa
@@ -154,6 +155,7 @@ class siswacontroller extends Controller
         $siswa->save();
 
         $user = User::findOrFail($siswa->user_id);
+        $user->name = $validasi['nama'] ?? $user->name;
         $user->username = $validasi['username'] ?? $user->username;
         if ($request->filled('password')) {
             $user->password = bcrypt($validasi['password']);

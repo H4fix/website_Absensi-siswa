@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('tanggal_lahir', 30);
             $table->string('username', 30);
             $table->string('password');
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -9,8 +9,14 @@
 
   <li class="nav-item">
     <a class="nav-link {{ $menu == 'siswa' ? '' : 'collapsed' }}" href="{{ route('siswa.index') }}">
-      <i class="bi bi-person"></i>
+      <i class="fas fa-user"></i>
       <span>Siswa</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {{ $menu == 'guru' ? '' : 'collapsed' }}" href="{{ route('guru.index') }}">
+      <i class="fas fa-user-graduate"></i>
+      <span>Guru</span>
     </a>
   </li>
   <li class="nav-item">

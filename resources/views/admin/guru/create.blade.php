@@ -44,15 +44,13 @@
                     </select>
                 </div>
                 <div class="col-12">
-                    <label for="nohp" class="form-label">Nomor Handphone</label>
-                    <input type="number" class="form-control" id="nohp" name="nohp" placeholder="masukkan nohp" required>
+                    <label for="no_hp" class="form-label">Nomor Handphone</label>
+                    <input type="number" class="form-control" id="no_hp" name="no_hp" placeholder="masukkan no_hp" required>
                 </div>
                 <div class="col-12">
                     <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
                     <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="masukkan tanggal lahir " required>
                 </div>
-              
-                <input type="hidden" name="id_user" value="2">
                 <div class="text-end">
                     <a href="{{route('guru.index')}}" class="btn btn-primary">
                         <i class="bi bi-arrow-left"></i> Kembali

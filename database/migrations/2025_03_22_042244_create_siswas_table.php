@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('nama_wm', 30);
             $table->string('nohp_wm', 13);
             $table->string('alamat_wm', 100);
-            $table->foreignId('local_id')->constrained('locals')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('local_id')->references('id')->on('locals')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

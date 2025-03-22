@@ -45,8 +45,8 @@
                     </select>
                 </div>
                 <div class="col-12">
-                    <label for="nohp" class="form-label">Nomor Handphone</label>
-                    <input type="number" class="form-control" id="nohp" name="nohp" value="{{$guru->nohp}}">
+                    <label for="no_hp" class="form-label">Nomor Handphone</label>
+                    <input type="number" class="form-control" id="no_hp" name="no_hp" value="{{$guru->no_hp}}">
                 </div>
                 <div class="col-12">
                     <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
