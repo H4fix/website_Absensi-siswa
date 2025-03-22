@@ -31,6 +31,18 @@
       <span>Jurusan</span>
     </a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link {{ $menu == 'ortu' ? '' : 'collapsed' }}" href="{{ route('ortu.index') }}">
+      <i class="bi bi-person-lines-fill"></i>
+      <span>Orang Tua</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {{ $menu == 'user' ? '' : 'collapsed' }}" href="{{ route('user.index') }}">
+      <i class="fas fa-users"></i>
+      <span>User</span>
+    </a>
+  </li>
 
 
 

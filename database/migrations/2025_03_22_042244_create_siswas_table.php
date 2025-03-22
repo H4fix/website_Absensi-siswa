@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('jk', ['L', 'P']);
             $table->string('no_hp', 13);
             $table->string('username', 30);
-            $table->string('password', 30);
+            $table->string('password');
             $table->string('nama_wm', 30);
             $table->string('nohp_wm', 13);
             $table->string('alamat_wm', 100);
