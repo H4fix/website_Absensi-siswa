@@ -43,6 +43,12 @@
       <span>User</span>
     </a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link {{ $menu == 'absen' ? '' : 'collapsed' }}" href="{{ route('absen.index2') }}">
+      <i class="bi bi-calendar-check"></i>
+      <span>Absensi</span>
+    </a>
+  </li>
 
 
 

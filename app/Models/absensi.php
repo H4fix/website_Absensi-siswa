@@ -14,14 +14,18 @@ class absensi extends Model
     protected $fillable = [
         'tanggal_absen',
         'jam_absen',
+        'status',
+        'foto',
         'siswa_id',
         'guru_id',
+        
     ];
 
     public function siswa()
     {
-        return $this->belongsTo(Siswa::class);
+        return $this->belongsTo(Siswa::class, 'siswa_id');
     }
+
 
     public function guru()
     {
