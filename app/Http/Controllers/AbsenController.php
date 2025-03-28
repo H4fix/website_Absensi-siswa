@@ -46,24 +46,19 @@ public function store(Request $request)
         'guru_id' => 'nullable',
     ]);
 
-    // Simpan file foto ke folder 'public/foto_siswa'
-    if ($request->hasFile('foto')) {
-        $foto = $request->file('foto')->store('public/foto_siswa');
-        $foto = str_replace('public/', 'storage/', $foto); // Ubah 'public/' menjadi 'storage/'
-    } else {
-        $foto = $siswa->foto;
-    }
+        $nm = $request->foto;
+        $namaFile = $nm->getClientOriginalName();
 
     // Simpan data absensi ke database
     Absensi::create([
         'tanggal_absen' => now()->toDateString(),
         'jam_absen' => now()->toTimeString(),
         'status' => 'Hadir',
-        'foto' => $foto, // Simpan path dengan 'storage/'
+        'foto' => $namaFile, // Simpan path dengan 'storage/'
         'siswa_id' => $siswa->id,
         
     ]);
-
+        $nm->move(public_path() . '/foto', $namaFile);
     return redirect()->route('absen.index')->with('success', 'Absensi berhasil disimpan!');
 }
 

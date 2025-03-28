@@ -51,13 +51,8 @@
                                 <td>{{ $absen->jam_absen }}</td>
                                 <td>{{ $absen->status}}</td>
                                 <td>
-                                    @if($absen->foto)
-                                    <img src="{{ asset('storage/foto_siswa/' . $absen->foto) }}" alt="Foto Siswa" width="100">
+                                    <img src="{{ asset('foto/'.$absen->foto) }}" alt="Foto" width="100" class="rounded">
 
-
-                                    @else
-                                    Tidak Ada
-                                    @endif
                                 </td>
                                 <td class="action-btns">
                                     <a href="{{route('absen.edit2',$absen['id'])}}" class='btn btn-outline-warning btn-sm'><i class='fas fa-pencil-alt' title="edit"></i></a>

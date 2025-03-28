@@ -59,8 +59,8 @@
                     <textarea name="alamat" id="alamat" class="form-control">{{$siswa->alamat}}</textarea>
                 </div>
                 <div class="col-12">
-                    <label for="nohp" class="form-label">Nomor Handphone</label>
-                    <input type="number" class="form-control" id="nohp" name="nohp" value="{{$siswa->nohp}}">
+                    <label for="no_hp" class="form-label">Nomor Handphone</label>
+                    <input type="number" class="form-control" id="no_hp" name="no_hp" value="{{$siswa->no_hp}}">
                 </div>
                 <div class="col-12">
                     <label for="nama_wm" class="form-label">Nama WaliMurid</label>

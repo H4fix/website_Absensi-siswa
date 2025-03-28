@@ -50,7 +50,7 @@
 
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="assets/img/logo.png" alt="">
+                  <img src="{{asset('assets/img/icon2.png')}}" alt="">
                   <span class="d-none d-lg-block">OnTime</span>
                 </a>
               </div><!-- End Logo -->
@@ -89,7 +89,7 @@
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
-                   
+                    
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">Login</button>
                     </div>
